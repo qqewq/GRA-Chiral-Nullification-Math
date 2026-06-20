@@ -1,3 +1,6 @@
+https://orcid.org/my-orcid?orcid=0009-0004-1872-1153
+https://doi.org/10.5281/zenodo.20774536
+----------------
 # GRA-Chiral-Nullification-Math  
 **ГРА-хиральность как универсальный язык обнуления симметрии**  
 **GRA chirality as a universal language of symmetry nullification**
