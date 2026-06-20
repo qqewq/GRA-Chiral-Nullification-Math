@@ -1,0 +1,234 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{parskip}
+
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3cm}
+
+\title{
+  \textbf{GRA-Chiral-Nullification-Math:} \\
+  \textbf{Хиральность как нативный язык GRA-обнулёнки}
+}
+
+\author{
+  oleg bits (\texttt{qqewq}) \\
+  \texttt{https://github.com/qqewq} \\
+  \texttt{GRA-Chiral-Nullification-Math} \\
+  \texttt{https://github.com/qqewq/GRA-Chiral-Nullification-Math}
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+В работе предлагается строгая математическая формализация GRA-обнулёнки в языке хиральности.
+Хиральность трактуется не как свойство химических молекул, а как абстрактное свойство объектов в метрическом/топологическом пространстве (без химии).
+Оператор обнулёнки \(\mathcal{N}\) интерпретируется как «хиральный подъём» политики в пространство пар (правое/левое) с последующим занулением весов и состояния.
+Показывается, что GRA-обнулёнка и хиральность эквивалентны на уровне операторов: \( \mathcal{N} \equiv \text{хиральный подъём} \).
+Работа предназначена для фундамента GRA-экосистемы: \( \text{GRA-Meta-Nulling-Foundations} \), \( \text{GRA-SubjectSwap} \), \( \text{GRA-ASI-Metric-Space} \) и др.
+\end{abstract}
+
+\section{Введение}
+
+\subsection{GRA-обнулёнка и хиральность}
+
+GRA-обнулёнка — не просто «поставить всё в ноль», а конструктивный переход
+
+\[
+(\Pi, W, S) \;\longrightarrow\; (\Pi', 0, 0),
+\]
+
+где:
+
+- \(\Pi\) — политика (policy),
+- \(W\) — вектор весов,
+- \(S\) — состояние,
+- \(\Pi' = F(\Pi)\) — переparameterизованная политика.
+
+В этой работе мы показываем, что этот процесс можно **напрямую** трактовать как переход в **хиральное пространство**:
+
+\[
+(\Pi, W, S) \;\longrightarrow\; ((R, L), 0, 0),
+\]
+
+где:
+
+- \(R = \Pi\) — «правая» конфигурация,
+- \(L = Z(\Pi)\) — «левая» конфигурация, получаемая зеркальным оператором \(Z\),
+- пара \((R, L)\) — хиральная пара.
+
+Хиральность здесь не химия, а **абстрактное свойство объекта** не совпадать со своим зеркальным отражением через любые автоморфизмы.
+
+\section{Математика хиральности}
+
+\subsection{Пространство и зеркальный оператор}
+
+\begin{definition}[Хиральность]
+Пусть \(X\) — множество объектов, \(Z : X \to X\) — оператор зеркального отображения,
+а \(\mathcal{R}\) — семейство допустимых автоморфизмов (например, вращений).
+
+Элемент \(x \in X\) называется **хиральным**, если
+
+\[
+\forall \rho \in \mathcal{R} \quad \rho(x) \neq Z(x).
+\tag{1}
+\]
+\end{definition}
+
+\begin{definition}[Правая и левая конфигурации]
+Для любого \(x \in X\) определяем:
+
+\[
+\mathcal{R}(x) = x, \qquad \mathcal{L}(x) = Z(x).
+\tag{2}
+\]
+
+Пара \((\mathcal{R}(x), \mathcal{L}(x))\) называется **хиральной парой**.
+\end{definition}
+
+\begin{lemma}[Инволюция зеркала]
+Если \(Z\) является инволюцией, то
+
+\[
+Z(Z(x)) = x \quad \text{для всех } x \in X.
+\tag{3}
+\]
+\end{lemma}
+
+\section{Математика GRA-обнулёнки}
+
+\subsection{Тройка (политика, веса, состояние)}
+
+\begin{definition}[Тройка GRA]
+Пусть:
+
+- \(\Pi \in \mathcal{P}\) — элемент пространства политик,
+- \(W \in \mathcal{W}\) — вектор весов,
+- \(S \in \mathcal{S}\) — состояние.
+
+Тройка \((\Pi, W, S)\) называется **тройкой GRA**.
+\end{definition}
+
+\subsection{Оператор обнулёнки}
+
+\begin{definition}[Оператор обнулёнки]
+Оператор \(\mathcal{N}\) определяется как
+
+\[
+\mathcal{N} : \mathcal{P} \times \mathcal{W} \times \mathcal{S}
+\to
+\mathcal{P} \times \mathcal{W} \times \mathcal{S},
+\]
+
+\[
+\mathcal{N}(\Pi, W, S) = (\Pi', 0, 0),
+\tag{4}
+\]
+
+где \(\Pi' = F(\Pi)\) — переparameterизованная политика (reparametrization).
+\end{definition}
+
+\section{Эквивалентность: хиральность = обнулёнка}
+
+\subsection{Хиральный подъём политики}
+
+\begin{definition}[Хиральный подъём]
+Для любой политики \(\Pi \in \mathcal{P}\) определяем **хиральный подъём** \(F\) как
+
+\[
+F(\Pi) = (\Pi, Z(\Pi)) = (R, L).
+\tag{5}
+\]
+\end{definition}
+
+\begin{theorem}[Обнулёнка как хиральный подъём]
+Оператор обнулёнки \(\mathcal{N}\) можно переписать как
+
+\[
+\mathcal{N}(\Pi, W, S) = ((R, L), 0, 0),
+\tag{6}
+\]
+
+где \(R = \Pi\), \(L = Z(\Pi)\), то есть
+
+\[
+\mathcal{N}(\Pi, W, S) = (F(\Pi), 0, 0).
+\tag{7}
+\]
+\end{theorem}
+
+\textbf{Доказательство.}
+Из определений (4) и (5):
+
+\[
+\mathcal{N}(\Pi, W, S) = (\Pi', 0, 0)
+= (F(\Pi), 0, 0)
+= ((R, L), 0, 0).
+\]
+
+\(\square\)
+
+\begin{corollary}[Обнулёнка = хиральность]
+На уровне операторов GRA-обнулёнка и хиральность эквивалентны:
+
+\[
+\mathcal{N} \equiv \text{хиральный подъём}.
+\tag{8}
+\]
+\end{corollary}
+
+\section{Практические следствия}
+
+\subsection{GRA-обнулёнка как хиральный слой}
+
+В GRA-экосистеме обнулёнка может быть использована как:
+
+- **хиральный слой** над субъект/инструмент (subject/instrument),
+- способ формализовать «двойные» роли агента,
+- инструмент для «обнулённого» переparameterизования политик в мета-обнуляющих системах.
+
+См. также:
+
+- \texttt{GRA-Meta-Nulling-Foundations},
+- \texttt{GRA-SubjectSwap},
+- \texttt{GRA-ASI-Metric-Space},
+- \texttt{GRA-Quantum-Poetry}.
+
+\section{Заключение}
+
+Мы показали, что **GRA-обнулёнка** может быть строго описана как **хиральный подъём** в пространстве политик с последующим занулением весов и состояния.
+Хиральность формализована чисто математически: без химии, без LLM, только объекты, зеркальный оператор и автоморфизмы.
+
+Это даёт:
+
+- строгую математическую базу для GRA-обнулёнки,
+- язык для описания субъект/инструментной двойственности,
+- основу для дальнейших формализаций в GRA-экосистеме.
+
+В минимуме:
+
+- \(\mathcal{N} \equiv \text{хиральный подъём}\),
+- хиральность = нативный язык GRA-обнулёнки.
+
+\bigskip
+
+\noindent
+\textbf{Финальное утверждение:}
+
+\[
+\boxed{
+\mathcal{N} \equiv \text{хиральный подъём}, \qquad
+\text{хиральность = нативный язык GRA-обнулёнки}.
+}
+\]
+
+\end{document}

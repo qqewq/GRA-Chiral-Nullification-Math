@@ -1,0 +1,234 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{parskip}
+
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3cm}
+
+\title{
+  \textbf{GRA-Chiral-Nullification-Math:} \\
+  \textbf{Chirality as a Native Language of GRA Nullification}
+}
+
+\author{
+  oleg bits (\texttt{qqewq}) \\
+  \texttt{https://github.com/qqewq} \\
+  \texttt{GRA-Chiral-Nullification-Math} \\
+  \texttt{https://github.com/qqewq/GRA-Chiral-Nullification-Math}
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This paper proposes a strict mathematical formalization of GRA nullification in the language of chirality.
+Chirality is treated not as a property of chemical molecules, but as an abstract property of objects in a metric/topological space (without chemistry).
+The nullification operator \(\mathcal{N}\) is interpreted as a ``chiral lift'' of a policy into a pair space (right/left) followed by nullification of weights and state.
+We show that GRA nullification and chirality are equivalent at the operator level: \( \mathcal{N} \equiv \text{chiral lift} \).
+This work is intended as a mathematical core for the GRA ecosystem: \( \text{GRA-Meta-Nulling-Foundations} \), \( \text{GRA-SubjectSwap} \), \( \text{GRA-ASI-Metric-Space} \), and others.
+\end{abstract}
+
+\section{Introduction}
+
+\subsection{GRA nullification and chirality}
+
+GRA nullification is not simply ``set everything to zero'', but a constructive transition
+
+\[
+(\Pi, W, S) \;\longrightarrow\; (\Pi', 0, 0),
+\]
+
+where:
+
+- \(\Pi\) is a policy,
+- \(W\) is a weight vector,
+- \(S\) is a state,
+- \(\Pi' = F(\Pi)\) is a reparameterized policy.
+
+In this work, we show that this process can be **directly** interpreted as a lift into **chiral space**:
+
+\[
+(\Pi, W, S) \;\longrightarrow\; ((R, L), 0, 0),
+\]
+
+where:
+
+- \(R = \Pi\) is the ``right'' configuration,
+- \(L = Z(\Pi)\) is the ``left'' configuration obtained via a mirror operator \(Z\),
+- the pair \((R, L)\) is a chiral pair.
+
+Here chirality is not chemistry, but an **abstract property of an object** not matching its mirror image under any automorphisms.
+
+\section{Mathematics of chirality}
+
+\subsection{Space and mirror operator}
+
+\begin{definition}[Chirality]
+Let \(X\) be a set of objects, \(Z : X \to X\) a mirror operator,
+and \(\mathcal{R}\) a family of admissible automorphisms (e.g. rotations).
+
+An element \(x \in X\) is called **chiral** if
+
+\[
+\forall \rho \in \mathcal{R} \quad \rho(x) \neq Z(x).
+\tag{1}
+\]
+\end{definition}
+
+\begin{definition}[Right and left configurations]
+For any \(x \in X\), we define:
+
+\[
+\mathcal{R}(x) = x, \qquad \mathcal{L}(x) = Z(x).
+\tag{2}
+\]
+
+The pair \((\mathcal{R}(x), \mathcal{L}(x))\) is called a **chiral pair**.
+\end{definition}
+
+\begin{lemma}[Mirror involution]
+If \(Z\) is an involution, then
+
+\[
+Z(Z(x)) = x \quad \text{for all } x \in X.
+\tag{3}
+\]
+\end{lemma}
+
+\section{Mathematics of GRA nullification}
+
+\subsection{Triple (policy, weights, state)}
+
+\begin{definition}[GRA triple]
+Let:
+
+- \(\Pi \in \mathcal{P}\) be an element of the policy space,
+- \(W \in \mathcal{W}\) be a weight vector,
+- \(S \in \mathcal{S}\) be a state.
+
+The triple \((\Pi, W, S)\) is called a **GRA triple**.
+\end{definition}
+
+\subsection{Nullification operator}
+
+\begin{definition}[Nullification operator]
+The operator \(\mathcal{N}\) is defined as
+
+\[
+\mathcal{N} : \mathcal{P} \times \mathcal{W} \times \mathcal{S}
+\to
+\mathcal{P} \times \mathcal{W} \times \mathcal{S},
+\]
+
+\[
+\mathcal{N}(\Pi, W, S) = (\Pi', 0, 0),
+\tag{4}
+\]
+
+where \(\Pi' = F(\Pi)\) is a reparameterized policy.
+\end{definition}
+
+\section{Equivalence: chirality = nullification}
+
+\subsection{Chiral lift of a policy}
+
+\begin{definition}[Chiral lift]
+For any policy \(\Pi \in \mathcal{P}\), we define the **chiral lift** \(F\) as
+
+\[
+F(\Pi) = (\Pi, Z(\Pi)) = (R, L).
+\tag{5}
+\]
+\end{definition}
+
+\begin{theorem}[Nullification as chiral lift]
+The nullification operator \(\mathcal{N}\) can be rewritten as
+
+\[
+\mathcal{N}(\Pi, W, S) = ((R, L), 0, 0),
+\tag{6}
+\]
+
+where \(R = \Pi\), \(L = Z(\Pi)\), i.e.
+
+\[
+\mathcal{N}(\Pi, W, S) = (F(\Pi), 0, 0).
+\tag{7}
+\]
+\end{theorem}
+
+\textbf{Proof.}
+From definitions (4) and (5):
+
+\[
+\mathcal{N}(\Pi, W, S) = (\Pi', 0, 0)
+= (F(\Pi), 0, 0)
+= ((R, L), 0, 0).
+\]
+
+\(\square\)
+
+\begin{corollary}[Nullification = chirality]
+At the operator level, GRA nullification and chirality are equivalent:
+
+\[
+\mathcal{N} \equiv \text{chiral lift}.
+\tag{8}
+\]
+\end{corollary}
+
+\section{Practical consequences}
+
+\subsection{Nullification as a chiral layer}
+
+In the GRA ecosystem, nullification can be used as:
+
+- a **chiral layer** over subject/instrument,
+- a way to formalize ``dual'' agent roles,
+- a tool for ``nullified'' reparameterization of policies in meta-nulling systems.
+
+See also:
+
+- \texttt{GRA-Meta-Nulling-Foundations},
+- \texttt{GRA-SubjectSwap},
+- \texttt{GRA-ASI-Metric-Space},
+- \texttt{GRA-Quantum-Poetry}.
+
+\section{Conclusion}
+
+We have shown that **GRA nullification** can be strictly described as a **chiral lift** in the policy space followed by nullification of weights and state.
+Chirality is formalized purely mathematically: without chemistry, without LLMs, only objects, a mirror operator, and automorphisms.
+
+This provides:
+
+- a strict mathematical foundation for GRA nullification,
+- a language for describing subject/instrument duality,
+- a basis for further formalizations in the GRA ecosystem.
+
+In minimum:
+
+- \(\mathcal{N} \equiv \text{chiral lift}\),
+- chirality = native language of GRA nullification.
+
+\bigskip
+
+\noindent
+\textbf{Final statement:}
+
+\[
+\boxed{
+\mathcal{N} \equiv \text{chiral lift}, \qquad
+\text{chirality = native language of GRA nullification}.
+}
+\]
+
+\end{document}
